@@ -1,0 +1,54 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <img class="img-thumbnail img-circke">
+    </div>
+    <div class="col">
+        <h3>{{ artist.name }}</h3>
+        <p>
+            <a [href]="artist.external_url.spotify" target="_blank">
+                <button class="btn btn-outline-primary">
+                    Go to artist page!
+                </button>
+            </a>
+        </p>
+    </div>
+    <div class="col-4 text-right">
+        <button class="btn btn-outline-danger">
+            Returno
+        </button>
+    </div>
+</div>
+<div class="row-5">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Card</th>
+                    <th>Album</th>
+                    <th>Song</th>
+                    <th>Preview</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let track of topTracks">
+                    <td>
+                        <img [src]="track.album.images | noimage" class="img-thumb" />
+                    </td>
+                    <td>{{ track.album.name }}</td>
+                    <td>{{ track.name }}</td>
+                    <td>
+                        <iframe
+                            [src]="track.uri | domseguro"
+                            width="320"
+                            height="90"
+                            frameborder="0"
+                            allowtransparency="true"
+                            allow="encrypted-media"
+                        ></iframe>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+            
